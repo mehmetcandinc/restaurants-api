@@ -15,11 +15,20 @@ const RestList = () => {
   useEffect(() => {
     fetchRests();
   }, []);
+  let image = document.createElement("img");
+  image.classList.add("card-img-top");
+  image.src = `${rests}?random=${Math.random()}`; // notice this
+  console.log(image.src);
   return (
     <div className="rests-list">
-      <ul></ul>
       {rests.map((rest, i) => (
-        <SingleRest rest={rest} />
+        <>
+          <SingleRest rest={rest} />
+          <img
+            src={"https://loremflickr.com/500/500/restaurant?random=1"} //ERROR SAME PHOTO PROMLEMS
+            alt="res"
+          />
+        </>
       ))}
     </div>
   );

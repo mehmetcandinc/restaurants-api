@@ -1,7 +1,7 @@
 import React from "react";
 
 const SingleRest = ({ rest }) => {
-  return <div>{rest.name}</div>;
+  return <div className="single-rest"></div>;
 };
 
 export default SingleRest;
