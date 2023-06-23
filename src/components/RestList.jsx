@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+//COMPONENTS
+import SingleRest from "./SingleRest";
 
 const RestList = () => {
   const [rests, setRests] = useState([]);
@@ -17,7 +19,7 @@ const RestList = () => {
     <div className="rests-list">
       <ul></ul>
       {rests.map((rest, i) => (
-        <li>{rest.name}</li>
+        <SingleRest rest={rest} />
       ))}
     </div>
   );
