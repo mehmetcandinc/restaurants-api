@@ -28,9 +28,15 @@ const SingleRest = ({ rest }) => {
             src={logo}
             alt="restaurant-logo"
           />
-        ))}{" "}
-        <br></br>
-        <p>{rest.name}</p>
+        ))}
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {rest.name}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {rest.review}
+          </Typography>
+        </CardContent>
       </CardActionArea>
     </Card>
   );
