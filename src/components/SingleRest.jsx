@@ -18,18 +18,21 @@ const SingleRest = ({ rest }) => {
   urlArray.push(randomImageUrl);
 
   return (
-    <div className="single-rest">
-      {urlArray.map((logo, i) => (
-        <img
-          key={i}
-          className="restaurants-logo"
-          src={logo}
-          alt="restaurant-logo"
-        />
-      ))}{" "}
-      <br></br>
-      <p>{rest.name}</p>
-    </div>
+    <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea>
+        {urlArray.map((logo, i) => (
+          <CardMedia
+            key={i}
+            component="img"
+            className="restaurants-logo"
+            src={logo}
+            alt="restaurant-logo"
+          />
+        ))}{" "}
+        <br></br>
+        <p>{rest.name}</p>
+      </CardActionArea>
+    </Card>
   );
 };
 
