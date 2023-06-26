@@ -10,7 +10,6 @@ const SingleRest = ({ rest }) => {
   const urlArray = [];
   const randomImageUrl = generateRandomImageUrl();
   urlArray.push(randomImageUrl);
-  console.log(randomImageUrl);
 
   return (
     <div key={rest.id} className="single-rest">
