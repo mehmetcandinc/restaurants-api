@@ -1,5 +1,5 @@
 import React from "react";
-
+//Card Profile e.g. https://mui.com/material-ui/react-card/ & get all API elements
 const SingleRest = ({ rest }) => {
   const generateRandomImageUrl = () => {
     const randomIndex = Math.floor(Math.random() * 1000);
