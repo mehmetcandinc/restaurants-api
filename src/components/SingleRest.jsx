@@ -1,5 +1,10 @@
 import React from "react";
 //Card Profile e.g. https://mui.com/material-ui/react-card/ & get all API elements except ids
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { CardActionArea } from "@mui/material";
 
 const SingleRest = ({ rest }) => {
   const generateRandomImageUrl = () => {
@@ -13,7 +18,7 @@ const SingleRest = ({ rest }) => {
   urlArray.push(randomImageUrl);
 
   return (
-    <div key={rest.id} className="single-rest">
+    <div className="single-rest">
       {urlArray.map((logo, i) => (
         <img
           key={i}
