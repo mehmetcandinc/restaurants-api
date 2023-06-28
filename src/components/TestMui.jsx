@@ -15,22 +15,40 @@ import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { CardActionArea } from "@mui/material";
+//TABLE
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <CardActionArea {...other} />;
 })(({ theme, expand }) => ({
   marginLeft: "auto",
+}));
+const ExpandMore2 = styled((props) => {
+  const { expand2, ...other } = props;
+  return <IconButton {...other} />;
+})(({ theme, expand2 }) => ({
+  transform: !expand2 ? "rotate(0deg)" : "rotate(180deg)",
+  marginLeft: "auto",
   transition: theme.transitions.create("transform", {
     duration: theme.transitions.duration.shortest,
   }),
 }));
-
 export default function RecipeReviewCard() {
   const [expanded, setExpanded] = useState(false);
+  const [expanded2, setExpanded2] = useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
+  };
+  const handleExpandClick2 = () => {
+    setExpanded2(!expanded2);
   };
 
   return (
@@ -92,8 +110,8 @@ export default function RecipeReviewCard() {
                 serve.
               </Typography>
 
-              <ExpandMore
-                title="ss"
+              {/*  <ExpandMore
+                title="ss"                                //TEST FAILED
                 expand={expanded}
                 onClick={handleExpandClick}
                 aria-expanded={expanded}
@@ -102,11 +120,61 @@ export default function RecipeReviewCard() {
                 <Typography variant="h6" component="div">
                   Hours <ExpandMoreIcon sx={{ fontSize: 22 }} />
                 </Typography>
-              </ExpandMore>
+              </ExpandMore> */}
             </CardContent>
           </Collapse>
         </ExpandMore>
       </CardActionArea>
+      <ExpandMore2
+        title="Working Hours"
+        expand={expanded2}
+        onClick={handleExpandClick2}
+        aria-expanded={expanded2}
+        aria-label="show more"
+      >
+        Working Hours <ExpandMoreIcon />
+      </ExpandMore2>
+      <Collapse in={expanded2} timeout="auto" unmountOnExit>
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>
+                  <b>DAYS</b>
+                </TableCell>
+                <TableCell align="right">Monday</TableCell>
+                <TableCell align="right">Sunday</TableCell>
+                <TableCell align="right">Friday</TableCell>
+                <TableCell align="right">Friday</TableCell>
+                <TableCell align="right">Friday</TableCell>
+                <TableCell align="right">Friday</TableCell>
+                <TableCell align="right">Friday</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRow>
+                <TableCell>OPEN</TableCell>
+                <TableCell align="right">10:00</TableCell>
+                <TableCell align="right">11:22</TableCell>
+                <TableCell align="right">09:22</TableCell>
+                <TableCell align="right">09:22</TableCell>
+                <TableCell align="right">09:22</TableCell>
+                <TableCell align="right">09:22</TableCell>
+                <TableCell align="right">09:22</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Close</TableCell>
+                <TableCell align="right">21:22</TableCell>
+                <TableCell align="right">23:22</TableCell>
+                <TableCell align="right">21:22</TableCell>
+                <TableCell align="right">00:22</TableCell>
+                <TableCell align="right">21:22</TableCell>
+                <TableCell align="right">21:22</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Collapse>
     </Card>
   );
 }
