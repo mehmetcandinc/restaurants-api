@@ -22,11 +22,11 @@ const ExpandMore = styled((props) => {
 })(({ theme, expand }) => ({
   marginLeft: "auto",
 }));
-const ExpandMore2 = styled((props) => {
-  const { expand2, ...other } = props;
+const ExpandMoreHours = styled((props) => {
+  const { expandHours, ...other } = props;
   return <IconButton {...other} />;
-})(({ theme, expand2 }) => ({
-  transform: !expand2 ? "rotate(0deg)" : "rotate(180deg)",
+})(({ theme, expandHours }) => ({
+  transform: !expandHours ? "rotate(0deg)" : "rotate(180deg)",
   marginLeft: "auto",
   transition: theme.transitions.create("transform", {
     duration: theme.transitions.duration.shortest,
@@ -34,13 +34,13 @@ const ExpandMore2 = styled((props) => {
 }));
 export default function RecipeReviewCard() {
   const [expanded, setExpanded] = useState(false);
-  const [expanded2, setExpanded2] = useState(false);
+  const [expandedHours, setExpandedHours] = useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  const handleExpandClick2 = () => {
-    setExpanded2(!expanded2);
+  const handleExpandClickHours = () => {
+    setExpandedHours(!expandedHours);
   };
 
   return (
@@ -101,32 +101,20 @@ export default function RecipeReviewCard() {
                 Set aside off of the heat to let rest for 10 minutes, and then
                 serve.
               </Typography>
-
-              {/*  <ExpandMore
-                title="ss"                                //TEST FAILED
-                expand={expanded}
-                onClick={handleExpandClick}
-                aria-expanded={expanded}
-                aria-label="show more"
-              >
-                <Typography variant="h6" component="div">
-                  Hours <ExpandMoreIcon sx={{ fontSize: 22 }} />
-                </Typography>
-              </ExpandMore> */}
             </CardContent>
           </Collapse>
         </ExpandMore>
       </CardActionArea>
-      <ExpandMore2
+      <ExpandMoreHours
         title="Working Hours"
-        expand={expanded2}
-        onClick={handleExpandClick2}
-        aria-expanded={expanded2}
+        expand={expandedHours}
+        onClick={handleExpandClickHours}
+        aria-expanded={expandedHours}
         aria-label="show more"
       >
         Working Hours <ExpandMoreIcon />
-      </ExpandMore2>
-      <Collapse in={expanded2} timeout="auto" unmountOnExit></Collapse>
+      </ExpandMoreHours>
+      <Collapse in={expandedHours} timeout="auto" unmountOnExit></Collapse>
     </Card>
   );
 }
