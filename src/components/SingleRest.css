@@ -1,0 +1,9 @@
+.rests-list {
+  overflow: auto;
+  margin: 10px;
+  padding: 10px;
+}
+.rest-card {
+  float: left;
+  margin: 10px;
+}

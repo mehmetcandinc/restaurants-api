@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./SingleRest.css";
 import axios from "axios"; // installed axios `npm i axios`
 //COMPONENTS
 import SingleRest from "./SingleRest";
