@@ -19,9 +19,11 @@ const RestList = () => {
 
   return (
     <div className="rests-list">
-      {rests.map((rest, i) => (
-        <SingleRest key={i} rest={rest} />
-      ))}
+      <div className="grid-container">
+        {rests.map((rest, i) => (
+          <SingleRest key={i} rest={rest} />
+        ))}
+      </div>
     </div>
   );
 };

@@ -7,3 +7,10 @@
   float: left;
   margin: 10px;
 }
+.grid-container {
+  display: grid;
+
+  grid-template-columns: auto auto auto auto auto;
+  gap: 5px;
+  padding: 10px;
+}
